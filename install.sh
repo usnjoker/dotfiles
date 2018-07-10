@@ -3,12 +3,11 @@
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
-echo $SCRIPTPATH
 
 
 
-sudo pacman -S uim
-sudo pacman -S noto-fonts-cjk
+sudo pacman -S uim --noconfirm
+sudo pacman -S noto-fonts-cjk --noconfirm
 ln -s $SCRIPTPATH/.xprofile ~/.xprofile
 
 
@@ -23,18 +22,6 @@ sudo pacman -S tree --noconfirm
 sudo pacman -S vim --noconfirm
 sudo pacman -S terminator --noconfirm
 sudo yaourt -S google-chrome --noconfirm
-
-
-
-sudo yaourt -S nimf-git
-NIMF_SETTING_COUNT=$(cat ~/.xinitrc |grep -c nimf)
-if [[ $NIMF_SETTING_COUNT = 0 ]]; then
-    echo 'nimf-daemon' >> ~/.xinitrc
-    echo 'export GTK_IM_MODULE="nimf"' >> ~/.xinitrc
-    echo 'export QT4_IM_MODULE="nimf"' >> ~/.xinitrc
-    echo 'export QT_IM_MODULE="nimf"' >> ~/.xinitrc
-    echo 'export XMODIFIERS="@im=nimf"' >> ~/.xinitrc
-fi
 
 
 
