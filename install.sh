@@ -1,17 +1,13 @@
 #!/bin/sh
 
-
-
-ROOT=`pwd`
-echo $ROOT
-
-
-
-sudo pacman -Syyu --noconfirm
+SCRIPT=$(readlink -f "$0")
+# Absolute path this script is in, thus /home/user/bin
+SCRIPTPATH=$(dirname "$SCRIPT")
+echo $SCRIPTPATH
 
 
 
-
+sudo pacman -Syu --noconfirm && sudo pacman -Scc --noconfirm
 sudo pacman -S yaourt --noconfirm
 
 
@@ -24,19 +20,58 @@ sudo yaourt -S google-chrome --noconfirm
 
 
 
+sudo yaourt -S nimf-git
+NIMF_SETTING_COUNT=$(cat ~/.xinitrc |grep -c nimf)
+if [[ $NIMF_SETTING_COUNT = 0 ]]; then
+    echo 'nimf-daemon' >> ~/.xinitrc
+    echo 'export GTK_IM_MODULE="nimf"' >> ~/.xinitrc
+    echo 'export QT4_IM_MODULE="nimf"' >> ~/.xinitrc
+    echo 'export QT_IM_MODULE="nimf"' >> ~/.xinitrc
+    echo 'export XMODIFIERS="@im=nimf"' >> ~/.xinitrc
+fi
+
+
+
 sudo pacman -S mpd --noconfirm
 sudo pacman -S ncmpcpp --noconfirm
-ln -s $ROOT/mpd ~/.config
+rm ~/.config/mpd
+ln -s $SCRIPTPATH/mpd ~/.config
 
 
 
 yaourt -S i3-kde --noconfirm
 yaourt -S ttf-font-awesome --noconfirm
 sudo pacman -S lua conky --noconfirm
-ln -s $ROOT/plasma-workspace ~/.config
-ln -s $ROOT/i3 ~/.config
-echo 'export KDEWM=i3' >> .xinitrc
+rm ~/.config/plasma-workspace
+ln -s $SCRIPTPATH/plasma-workspace ~/.config
+rm ~/.config/i3
+ln -s $SCRIPTPATH/i3 ~/.config
+KDEWM_SETTING='export KDEWM=i3'
+KDEWM_SETTING_COUNT=$(cat ~/.xinitrc |grep -c $KDEWM_SETTING)
+if [[ $KDEWM_SETTING_COUNT = 0 ]]; then
+    echo 'export KDEWM=i3' >> ~/.xinitrc
+fi
+
 
 
 git config --global user.name "ws.jung.d"
 git config --global user.email "ws.jung.d@gmail.com"
+
+
+
+yaourt -S jdk8 --noconfirm
+sudo archlinux-java set java-8-jdk
+yaourt -S intellij-idea-ultimate-edition --noconfirm
+
+
+
+sudo pacman -S docker --noconfirm
+sudo usermod -aG docker $USER
+newgrp docker
+systemctl start docker
+systemctl status docker
+docker pull mysql
+docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=dkagh -d mysql --bind-address=0.0.0.0
+docker ps -a
+
+
