@@ -7,7 +7,7 @@ echo $SCRIPTPATH
 
 
 
-sudo pacman -S ibus-hangul ibus-qt
+sudo pacman -S uim
 sudo pacman -S noto-fonts-cjk
 ln -s $SCRIPTPATH/.xprofile ~/.xprofile
 
