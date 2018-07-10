@@ -7,6 +7,12 @@ echo $SCRIPTPATH
 
 
 
+sudo pacman -S ibus-hangul ibus-qt
+sudo pacman -S noto-fonts-cjk
+ln -s $SCRIPTPATH/.xprofile ~/.xprofile
+
+
+
 sudo pacman -Syu --noconfirm && sudo pacman -Scc --noconfirm
 sudo pacman -S yaourt --noconfirm
 
