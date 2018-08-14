@@ -1,7 +1,5 @@
-IM="uim"
-export GTK_IM_MODULE=$IM
-export XMODIFIERS=@im=$IM
-export QT_IM_MODULE=$IM
-export XIM=$IM
+export XMODIFIERS="@im=SCIM" 
+export GTK_IM_MODULE=scim 
+export QT_IM_MODULE=scim 
+scim -d
 
-uim-toolbar-gtk-systray &
