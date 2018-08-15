@@ -48,6 +48,8 @@ KDEWM_SETTING_COUNT=$(cat ~/.xinitrc |grep -c $KDEWM_SETTING)
 if [[ $KDEWM_SETTING_COUNT = 0 ]]; then
     echo 'export KDEWM=i3' >> ~/.xinitrc
 fi
+sudo pacman -S perl-anyevent-i3 --noconfirm
+sudo yaourt -S perl-json-xs --noconfirm
 
 
 
@@ -72,8 +74,17 @@ yaourt -S intellij-idea-ultimate-edition --noconfirm
 #docker ps -a
 
 
+
 # fish 설정
 pacman -S fish
 chsh -s /usr/bin/fish
 curl -L https://get.oh-my.fish | fish
 omf install eclm
+
+
+
+yaourt -S betterlockscreen --noconfirm
+yaourt -S i3-scrot --noconfirm
+yaourt -S xautolock --noconfirm
+mkdir ~/.local
+ln -s $SCRIPTPATH/bin/ ~/.local/

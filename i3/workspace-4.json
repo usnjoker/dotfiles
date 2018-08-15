@@ -1,0 +1,24 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "normal",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 533,
+       "width": 640,
+       "x": 960,
+       "y": 453
+    },
+    "name": "win10 [Running] - Oracle VM VirtualBox",
+    "percent": 1,
+    "swallows": [
+       {
+       // "class": "^VirtualBox\\ Machine$",
+       // "instance": "^VirtualBox\\ Machine$",
+       // "title": "^win10\\ \\[Running\\]\\ \\-\\ Oracle\\ VM\\ VirtualBox$",
+       // "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
