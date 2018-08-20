@@ -242,4 +242,4 @@ colors {
 
 exec mpd
 bindsym $mod+l exec "~/.local/bin/fuzzy_lock.sh"
-exec xautolock -time 1 -locker '~/.local/bin/fuzzy_lock.sh' &
+exec xautolock -time 60 -locker '~/.local/bin/fuzzy_lock.sh' &

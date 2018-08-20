@@ -23,8 +23,10 @@ disabled = ''
     .. parts.battery .. ','
     .. parts.host .. ','
     .. parts.volume .. ','
-    .. parts.machine .. ','
     .. parts.date .. ','
+    .. parts.download .. ','
+    .. parts.upload .. ','
+    .. parts.host .. ','
     .. parts.time
 ]]
 
@@ -33,6 +35,7 @@ enabled = ''
     .. parts.cputemp .. ',' 
     .. parts.cpu0 .. ','
     .. parts.memory .. ','
+    .. parts.machine .. ','
     .. parts.uptime .. ','
     .. jsonhelper.separator()
 conky.text = [[ 

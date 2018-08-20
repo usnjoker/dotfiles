@@ -5,14 +5,14 @@ jsonhelper = {}
 
 -- template variables
 local color_preset_dark = {
-  icon      = '#c9c925',
+  icon      = '#d70a53',
   text      = '#5c5dad',
   separator = '#545454',
   value     = '#aaaaaa'
 }
 
 local color_preset_bright = {
-  icon      = '#5c5dad',
+  icon      = '#d70a53',
   text      = '#606040',
   separator = '#c9c925',
   value     = '#000000'

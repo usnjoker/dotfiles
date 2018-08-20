@@ -80,7 +80,7 @@ ${if_mpd_playing}
     {"full_text":"${mpd_title 30}", "color" : "\#5c5dad", 
      "separator" : false, "separator_block_width":6 }
 ${else} 
-    {"full_text":"", "color":"\#c92525", 
+    {"full_text":"", "color":"\#d70a53",
      "separator" : false, "separator_block_width":6 }
 ${endif} 
 ]]
@@ -97,7 +97,7 @@ ${endif}${endif}${endif}
 ]]
 
 -- Download
-parts.download = _h.common(' ', 'DOWN') .. [[,
+parts.download = _h.common('', 'DOWN') .. [[,
 ${if_match ${downspeedf ]] .. wlandev .. [[}<1000}
     ]] .. _h.value('${downspeed ' .. wlandev .. '}', ci.good) .. [[
 ${else}${if_match ${downspeedf ]] .. wlandev .. [[}<3000}
@@ -108,7 +108,7 @@ ${endif}${endif}${endif}
 ]]
 
 -- Upload
-parts.upload = _h.common('', 'UP') .. [[,
+parts.upload = _h.common('', 'UP') .. [[,
 ${if_match ${upspeedf ]] .. wlandev .. [[}<300}
     ]] .. _h.value('${upspeed ' .. wlandev .. '}', ci.good) .. [[
 ${else}${if_match ${upspeedf ]] .. wlandev .. [[}<800}
