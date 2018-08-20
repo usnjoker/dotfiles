@@ -21,8 +21,12 @@ sudo pacman -S ack --noconfirm
 sudo pacman -S tree --noconfirm
 sudo pacman -S vim --noconfirm
 sudo pacman -S terminator --noconfirm
-sudo yaourt -S google-chrome --noconfirm
+yaourt -S google-chrome --noconfirm
+sudo pacman -Rns firefox
 
+sudo pacman -S virtualbox --noconfirm
+sudo pacman -S linux414-virtualbox-host-modules --noconfirm 
+sudo gpasswd -a bean vboxusers
 
 
 sudo pacman -S mpd --noconfirm
@@ -44,6 +48,8 @@ KDEWM_SETTING_COUNT=$(cat ~/.xinitrc |grep -c $KDEWM_SETTING)
 if [[ $KDEWM_SETTING_COUNT = 0 ]]; then
     echo 'export KDEWM=i3' >> ~/.xinitrc
 fi
+sudo pacman -S perl-anyevent-i3 --noconfirm
+sudo yaourt -S perl-json-xs --noconfirm
 
 
 
@@ -58,13 +64,27 @@ yaourt -S intellij-idea-ultimate-edition --noconfirm
 
 
 
-sudo pacman -S docker --noconfirm
-sudo usermod -aG docker $USER
-newgrp docker
-systemctl start docker
-systemctl status docker
-docker pull mysql
-docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=dkagh -d mysql --bind-address=0.0.0.0
-docker ps -a
+#sudo pacman -S docker --noconfirm
+#sudo usermod -aG docker $USER
+#newgrp docker
+#systemctl start docker
+#systemctl status docker
+#docker pull mysql
+#docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=dkagh -d mysql --bind-address=0.0.0.0
+#docker ps -a
 
 
+
+# fish 설정
+pacman -S fish
+chsh -s /usr/bin/fish
+curl -L https://get.oh-my.fish | fish
+omf install eclm
+
+
+
+yaourt -S betterlockscreen --noconfirm
+yaourt -S i3-scrot --noconfirm
+yaourt -S xautolock --noconfirm
+mkdir ~/.local
+ln -s $SCRIPTPATH/bin/ ~/.local/

@@ -6,7 +6,7 @@ https://i3wm.org/docs/user-contributed/conky-i3bar.html
 https://i3wm.org/docs/i3bar-protocol.html
 
 You can change properties 
-  "background": "\#c9c925",
+  "background": "\#d70a53",
   "border": "\#ee0000"
   "separator" : true
 ]]
@@ -22,7 +22,7 @@ conky.text = [[
 [ 
 # MPD
 ${if_mpd_playing} 
-    {"full_text":"", "color":"\#c9c925", 
+    {"full_text":"", "color":"\#d70a53",
      "separator":false, "separator_block_width":6},
     {"full_text":"${mpd_artist 20}", "color" : "\#5c5dad", 
      "separator" : false, "separator_block_width":3 },
@@ -31,7 +31,7 @@ ${if_mpd_playing}
     {"full_text":"${mpd_title 30}", "color" : "\#545454", 
      "separator" : false, "separator_block_width":6 },
 ${else} 
-    {"full_text":"", "color":"\#c92525",
+    {"full_text":"", "color":"\#d70a53",
      "separator" : false, "separator_block_width":6 },
 ${endif}
 
