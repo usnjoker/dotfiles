@@ -76,7 +76,7 @@ yaourt -S intellij-idea-ultimate-edition --noconfirm
 
 
 # fish 설정
-pacman -S fish
+pacman -S fish2
 chsh -s /usr/bin/fish
 curl -L https://get.oh-my.fish | fish
 omf install eclm
@@ -88,3 +88,4 @@ yaourt -S i3-scrot --noconfirm
 yaourt -S xautolock --noconfirm
 mkdir ~/.local
 ln -s $SCRIPTPATH/bin/ ~/.local/
+yaourt -S archey3 --noconfirm
