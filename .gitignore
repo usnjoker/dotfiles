@@ -28,7 +28,7 @@
 # .idea/modules
 
 
-.idea/
+/.idea/
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
@@ -37,4 +37,9 @@ modules.xml
 .idea/misc.xml
 *.ipr
 
-mpd/
+/mpd
+/mpd/database
+/mpd/log
+/mpd/pid
+/mpd/state
+/mpd/sticker.sql
