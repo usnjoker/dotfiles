@@ -69,6 +69,7 @@ yaourt -S intellij-idea-ultimate-edition --noconfirm
 #newgrp docker
 #systemctl start docker
 #systemctl status docker
+#systemctl enable docker
 #docker pull mysql
 #docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=dkagh -d mysql --bind-address=0.0.0.0
 #docker ps -a
@@ -89,3 +90,10 @@ yaourt -S xautolock --noconfirm
 mkdir ~/.local
 ln -s $SCRIPTPATH/bin/ ~/.local/
 yaourt -S archey3 --noconfirm
+
+
+
+wget https://services.gradle.org/distributions/gradle-2.14.1-bin.zip
+unzip gradle-2.14.1-bin.zip
+mv gradle-2.14.1-bin /opt
+ln -s /opt/gradle-2.14.1/bin/gradle /bin/gradle

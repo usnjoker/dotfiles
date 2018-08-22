@@ -93,19 +93,17 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $firstMonitor DP-0
-set $secondMonitor HDMI-0
+set $firstMonitor HDMI1
+set $secondMonitor HDMI2
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
 workspace 4 output $firstMonitor
-workspace 5 output $firstMonitor
+workspace 5 output $secondMonitor
 workspace 6 output $secondMonitor
 workspace 7 output $secondMonitor
 workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -256,7 +254,19 @@ colors {
 }
 
 exec mpd
+
 bindsym $mod+l exec "~/.local/bin/fuzzy_lock.sh"
 exec xautolock -time 60 -locker '~/.local/bin/fuzzy_lock.sh' &
 
 exec uim-toolbar-gtk-systray
+
+exec --no-startup-id i3-msg 'workspace 1; exec /bin/google-chrome-stable'
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/local/bin/idea'
+exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable; workspace 1; exec telegram-desktop; workspace 2; exec idea; workspace 3; exec terminator; workspace 5; exec google-chrome-stable; workspace 6; exec datagrip; workspace 1'
+
+# Pulse Audio controls
+bindsym $mod+minus exec "amixer -c 0 set Master Front 3-"
+#volume
+bindsym $mod+equal exec "amixer -c 0 set Master Front 3+"
+#volume
+bindsym $mod+m exec "amixer set Master toggle"
